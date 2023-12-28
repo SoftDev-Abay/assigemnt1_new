@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="wrapper-main">
+      <h1>Blockchain generator online</h1>
+      <div class="create-block-container">
+        <div class="inputs-container">
+          <input
+            id="sender-username-input"
+            type="text"
+            placeholder="your username"
+          />
+          <input
+            id="recipient-username-input"
+            type="text"
+            placeholder="send to"
+          />
+          <input
+            id="recipient-amount-input"
+            type="number"
+            placeholder="amount"
+          />
+        </div>
+        <input type="text" placeholder="Public key" />
+        <button>Create Block</button>
+      </div>
+      <div class="menu-buttons-container">
+        <button>Show blockchain</button>
+        <button>Get latest block</button>
+      </div>
+      <div class="data-container"></div>
+    </div>
+  </body>
+</html>

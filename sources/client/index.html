@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper-sign-up">
+      <div class="form-wrapper">
+        <h1>Sign up</h1>
+        <input id="username-input" type="text" placeholder="Username" />
+        <input id="password-input" type="text" placeholder="Password" />
+        <div class="button-container">
+          <button id="sing-up-button">Submit</button>
+        </div>
+      </div>
+      <div class="data-wrapper">
+        <div id="info-container" class="info-container">
+          <h1>Hello, friend!</h1>
+          <p>
+            To get your public and private key pairs and explore the wordl of
+            blockchain.
+          </p>
+        </div>
+        <div id="keys-container" class="keys-container"  style="display: none;">
+          <span >Public key</sp>
+          <div class="key-copy-container">
+
+            <input id="public-key-input" readonly="readonly" value="" ></input>
+            <button id="public-key-copy-button">Copy</button>
+          </div>
+          <span >Private key</span>
+
+          <div class="key-copy-container">
+
+          <input id="private-key-input" readonly="readonly" value=""></input>
+          <button id="private-key-copy-button">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
