@@ -1,10 +1,15 @@
+import cryptojs from "crypto-js";
+const { SHA256 } = cryptojs;
+import crypto from "crypto";
+import { encrypt, decrypt } from "../encryption.js";
+
 export class CryptoBlock {
-  constructor(index, timestamp, data, precedingHash = " ", privateKey) {
+  constructor(index, timestamp, data, signature, precedingHash = " ") {
     this.index = index;
     this.timestamp = timestamp;
     this.data = this.encryptData(data);
     this.precedingHash = precedingHash;
-    this.signature = this.createSignature(privateKey, this.data);
+    this.signature = signature;
     this.hash = this.computeHash();
     this.nonce = 0;
   }
@@ -33,20 +38,6 @@ export class CryptoBlock {
     decryptedData.recipient = decrypt(data.recipient);
     decryptedData.quantity = decrypt(data.quantity);
     return decryptedData;
-  }
-
-  createSignature(privateKey, data) {
-    privateKey = crypto.createPrivateKey({
-      key: Buffer.from(privateKey, "base64"),
-      type: "pkcs8",
-      format: "der",
-    });
-    data = JSON.stringify(data);
-
-    const sign = crypto.createSign("SHA256");
-    sign.update(data);
-    const signature = sign.sign(privateKey).toString("base64");
-    return signature;
   }
 
   verifySignature(publicKey, data, signature) {

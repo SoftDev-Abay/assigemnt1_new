@@ -11,30 +11,19 @@
       <h1>Blockchain generator online</h1>
       <div class="create-block-container">
         <div class="inputs-container">
-          <input
-            id="sender-username-input"
-            type="text"
-            placeholder="your username"
-          />
-          <input
-            id="recipient-username-input"
-            type="text"
-            placeholder="send to"
-          />
-          <input
-            id="recipient-amount-input"
-            type="number"
-            placeholder="amount"
-          />
+          <input id="sender-input" type="text" placeholder="your username" />
+          <input id="recipient-input" type="text" placeholder="send to" />
+          <input id="quantity-input" type="number" placeholder="amount" />
         </div>
-        <input type="text" placeholder="Public key" />
-        <button>Create Block</button>
+        <input type="text" id="private-key-input" placeholder="Private key" />
+        <button id="create-block-button">Create Block</button>
       </div>
       <div class="menu-buttons-container">
-        <button>Show blockchain</button>
-        <button>Get latest block</button>
+        <button id="show-blockchain-button">Show blockchain</button>
+        <button id="show-latest-button">Get latest block</button>
       </div>
-      <div class="data-container"></div>
+      <div class="data-container" id="data-container"></div>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>

@@ -68,6 +68,37 @@ const writeBlockchain = async (blockchain) => {
   }
 };
 
+const constructBlockchainFromJson = async () => {
+  let jsonBlockchain = await readBlockchain();
+
+  const blockchain = new CryptoBlockchain();
+  jsonBlockchain.blockchain.forEach((block) => {
+    const newBlock = new CryptoBlock(
+      block.index,
+      block.timestamp,
+      block.data,
+      block.signature,
+      block.precedingHash
+    );
+    blockchain.blockchain.push(newBlock);
+  });
+  return blockchain;
+};
+
+const createSignature = (privateKey, data) => {
+  privateKey = crypto.createPrivateKey({
+    key: Buffer.from(privateKey, "base64"),
+    type: "pkcs8",
+    format: "der",
+  });
+  data = JSON.stringify(data);
+
+  const sign = crypto.createSign("SHA256");
+  sign.update(data);
+  const signature = sign.sign(privateKey).toString("base64");
+  return signature;
+};
+
 // HTTP route to get a new public and private keys pair
 server.get("/api/generate-key-pair", (req, res) => {
   try {
@@ -110,79 +141,89 @@ server.post("/api/sign-up", express.json(), async (req, res) => {
   }
 });
 
-// HTTP route to add a new block
-server.post("/api/block", express.json(), async (req, res) => {
-  try {
-    const users = await readUsers();
-    const { publicKey, data } = req.body;
-
-    const user = users.find((user) => user.username === username);
-    if (user) {
-      const blockchain = await readBlockchain();
-      const newBlock = new CryptoBlock(
-        blockchain.length,
-        Date.now(),
-        data,
-        blockchain[blockchain.length - 1].hash
-      );
-      newBlock.proofOfWork(blockchain.difficulty);
-
-      blockchain.push(newBlock);
-      await writeBlockchain(blockchain);
-      res.json({ status: "ok" });
-    } else {
-      res.status(400).json({ error: "User does not exist" });
-    }
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-// HTTP route to get the blockchain
-server.get("/api/blockchain", async (req, res) => {
-  try {
-    const blockchain = await readBlockchain();
-    res.json(blockchain);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-// HTTP route to get last block of the blockchain
-
-server.get("/api/blockchain/last-block", async (req, res) => {
-  try {
-    const blockchain = await readBlockchain();
-    res.json(blockchain[blockchain.length - 1]);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
 // Start listening for HTTP requests
-server.listen(port, host, () => {
-  // Displaying the host & port listened in the console for debugging purposes
-  console.log(`Listening on http://${host}:${port}`);
-});
+
+const initializeServer = async () => {
+  const glovalBlockchain = await constructBlockchainFromJson();
+
+  // HTTP route to add a new block
+  server.post("/api/block", express.json(), async (req, res) => {
+    try {
+      const users = await readUsers();
+      const { privateKey, data } = req.body;
+      const { sender } = data;
+      const user = users.find((user) => user.username === sender);
+      if (user) {
+        const signature = createSignature(privateKey, data);
+        const newBlock = new CryptoBlock(
+          glovalBlockchain.blockchain.length,
+          Date.now(),
+          data,
+          signature
+        );
+
+        console.log(glovalBlockchain.blockchain.length);
+
+        newBlock.proofOfWork(glovalBlockchain.difficulty);
+
+        glovalBlockchain.blockchain.push(newBlock);
+        await writeBlockchain(glovalBlockchain);
+        res.json({ status: "ok" });
+      } else {
+        res.status(400).json({ error: "User does not exist" });
+      }
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // HTTP route to get the blockchain
+  server.get("/api/blockchain", async (req, res) => {
+    try {
+      res.json(glovalBlockchain);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // HTTP route to get last block of the blockchain
+
+  server.get("/api/blockchain/latest", async (req, res) => {
+    try {
+      const latestBlock = glovalBlockchain.obtainLatestBlock();
+
+      res.json(latestBlock);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  server.listen(port, host, () => {
+    console.log(`Listening on http://${host}:${port}`);
+  });
+};
+
+initializeServer();
 
 // let smashingCoin = new CryptoBlockchain();
 
-//   console.log("smashingCoin mining in progress....");
-//   smashingCoin.addNewBlock(
-//     new CryptoBlock(1, "01/06/2020", {
-//       sender: "Iris Ljesnjanin",
-//       recipient: "Cosima Mielke",
-//       quantity: 50,
-//     })
-//   );
+// console.log("smashingCoin mining in progress....");
+// smashingCoin.addNewBlock(
+//   new CryptoBlock(1, "01/06/2020", {
+//     sender: "Iris Ljesnjanin",
+//     recipient: "Cosima Mielke",
+//     quantity: 50,
+//   })
+// );
 
-//   smashingCoin.addNewBlock(
-//     new CryptoBlock(2, "01/07/2020", {
-//       sender: "Vitaly Friedman",
-//       recipient: "Ricardo Gimenes",
-//       quantity: 100,
-//     })
-//   );
+// smashingCoin.addNewBlock(
+//   new CryptoBlock(2, "01/07/2020", {
+//     sender: "Vitaly Friedman",
+//     recipient: "Ricardo Gimenes",
+//     quantity: 100,
+//   })
+// );
 
-//   // pretty print JSON object null for no replacer meaning no transformation 4 for indentation
-//   console.log(JSON.stringify(smashingCoin, null, 4));
+// // pretty print JSON object null for no replacer meaning no transformation 4 for indentation
+// console.log(JSON.stringify(smashingCoin, null, 4));

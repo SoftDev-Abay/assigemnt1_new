@@ -1,6 +1,9 @@
+import { CryptoBlock } from "./cryptoBlock.js";
+
 export class CryptoBlockchain {
   constructor() {
-    this.blockchain = [this.startGenesisBlock()];
+    // this.blockchain = [this.startGenesisBlock()];
+    this.blockchain = [];
     this.difficulty = 4;
   }
   startGenesisBlock() {
