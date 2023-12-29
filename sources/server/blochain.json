@@ -4,75 +4,36 @@
       "index": 0,
       "timestamp": "01/01/2020",
       "data": "Initial Block in the Chain",
-      "precedingHash": " ",
+      "precedingHash": "9f19d236cf7832eacc897d98442e8d1314217d7fb8565e2c3d021dd87cfa8e1b",
       "signature": "0",
-      "hash": "9f19d236cf7832eacc897d98442e8d1314217d7fb8565e2c3d021dd87cfa8e1b",
+      "hash": "317ee0b8b6044edce568ecd698056d32dfd14253e968650047cf173aed0116b1",
       "nonce": 0
     },
     {
       "index": 1,
-      "timestamp": 1703791828108,
+      "timestamp": 1703845457830,
       "data": {
-        "sender": "454645474546454b4546454745464546454645474546454b4546454745464547454645474546454b454645474546454645464547454645734546454745494545",
-        "recipient": "454645474546454b4546454745464549454645474546454b4546454745464546454645474546454b4546454:45464549454645474546454b454645474549454545464547454645734546454745464547",
-        "quantity": 50
+        "sender": "cdc{",
+        "recipient": "dnpcufcufcufcufcuf",
+        "quantity": 2313123123
       },
-      "precedingHash": " ",
-      "signature": "RjslHkBu739XPQpbU+A8e9BgspLKFCtonT6an5gI/dXYKH3m+o2IG+J1JVhNmzdW9gZpwShyqc7MHzb4jldZA0DCPI1nJfTxlWuwCwOhu/WqLPp7aRBuvrYtFUkKSJ5IVQsQTaOL0lOfvpsWjKkZJo9GAWabX5uA0xSv9wKhDG3s2y0/Ny8Yhm5RourxaVIjtNFhlPyjxcishp1tDYR2piIB/A65XbfVQdC2DqnnAzk0mR4XfIP+u7ji4zqjOaXXKri+cSd4NVRZmDmjfFHarS3kA24J04AqNfEM60p4NRY8PplmX9bRp/vC+Lnv7a+jhI9t7yt1VbV1vgkK/aWHUA==",
-      "hash": "d1e37c8e416ab367c8b334b0688748b5c976c4e13c7653e59a3f92a8e38e17dd",
+      "precedingHash": "317ee0b8b6044edce568ecd698056d32dfd14253e968650047cf173aed0116b1",
+      "signature": "AI+twLKjfq9MdzmskQQjVXOTd9T2Am5UrL2eNoCIPQ/TZ0QAWrACNcI2deWYvhsk07yHu8zbybDBDQTAD1+zFcbFtnAsyE5e6l1gNe8WjxHU/zaOdU4oL8Ch6nztmD8NDl8rrwHcVZFmPlh2c2rRGysJkzspbB7ysb2th+Knvl1LXsqb7QKc5EivSCLmsRv9IjdQ1R/kvljfiuZQ6V+Gjf7vNB+hTa3HNI/BozZhv7wwdxDZXp5byEXjtmqCZxVOoMoz22Vo0wRt8GyySpCSkJxhc1IO6Iqdp6O9CeYbDEg2Ph8f1mBH4iynKfHC5okrfl4svu08mn/7H4V/BGUoIg==",
+      "hash": "87a5d3d1352b72ee5ef4ec28f5cef64b37fefae53b0adc9d216aea75ec34aae1",
       "nonce": 0
     },
     {
       "index": 2,
-      "timestamp": 1703791832948,
+      "timestamp": 1703845525735,
       "data": {
-        "sender": "4546454:454645454546454:454645464546454:454645454546454b45464844",
-        "recipient": "4546454:454645484546454:454645454546454:454945484546454:454648444546454b45464546",
-        "quantity": 50
+        "sender": "bcbz",
+        "recipient": "cmobtetbebtebtbtebtebtebte",
+        "quantity": 2313123123
       },
-      "precedingHash": " ",
-      "signature": "RjslHkBu739XPQpbU+A8e9BgspLKFCtonT6an5gI/dXYKH3m+o2IG+J1JVhNmzdW9gZpwShyqc7MHzb4jldZA0DCPI1nJfTxlWuwCwOhu/WqLPp7aRBuvrYtFUkKSJ5IVQsQTaOL0lOfvpsWjKkZJo9GAWabX5uA0xSv9wKhDG3s2y0/Ny8Yhm5RourxaVIjtNFhlPyjxcishp1tDYR2piIB/A65XbfVQdC2DqnnAzk0mR4XfIP+u7ji4zqjOaXXKri+cSd4NVRZmDmjfFHarS3kA24J04AqNfEM60p4NRY8PplmX9bRp/vC+Lnv7a+jhI9t7yt1VbV1vgkK/aWHUA==",
-      "hash": "4c07858bd67b6299ed1d3f7b97444ea980e3fe503ad9165f8d72ca1b518c47e9",
-      "nonce": 0
-    },
-    {
-      "index": 3,
-      "timestamp": 1703791914854,
-      "data": {
-        "sender": "454945444549454545494544454:4573",
-        "recipient": "45494547454945444549484745494573454:4545",
-        "quantity": 50
-      },
-      "precedingHash": " ",
-      "signature": "RjslHkBu739XPQpbU+A8e9BgspLKFCtonT6an5gI/dXYKH3m+o2IG+J1JVhNmzdW9gZpwShyqc7MHzb4jldZA0DCPI1nJfTxlWuwCwOhu/WqLPp7aRBuvrYtFUkKSJ5IVQsQTaOL0lOfvpsWjKkZJo9GAWabX5uA0xSv9wKhDG3s2y0/Ny8Yhm5RourxaVIjtNFhlPyjxcishp1tDYR2piIB/A65XbfVQdC2DqnnAzk0mR4XfIP+u7ji4zqjOaXXKri+cSd4NVRZmDmjfFHarS3kA24J04AqNfEM60p4NRY8PplmX9bRp/vC+Lnv7a+jhI9t7yt1VbV1vgkK/aWHUA==",
-      "hash": "347543f0d8c9f9fa635fc21f2f2823838e1562aa603422afe39c522b7139e430",
-      "nonce": 0
-    },
-    {
-      "index": 4,
-      "timestamp": 1703793009323,
-      "data": {
-        "sender": "484348444843494b",
-        "recipient": "484648434876484b4944",
-        "quantity": 2321
-      },
-      "precedingHash": " ",
-      "signature": "hT9jjxva7kLEaVmHqivhWXFQpsgY2gz1GYTe5BL5tkBKQK220jJJvxHwBzahRA67XJ7ksK8hMPDXY2J+W6eZ+XtZOntTxzuOtChwBgNKRds1be3hTU0IOFg3i4EiKJmI/Afb4nqImR/ClCR27wua6BwQKTENHwXw5o0YdZb7/mTAlWVGgIstCeINpRaISJ4gGKjKNiQGiKifgNjrmSpRwqnkyN8TpY3OWYnWbou3y+iJH2pHZ1XTIztumW7sSmC6nNSG0sd6TJ3dd/lZ0wiGNrLRZ89QAN+t/eC1q/C+iTZyo4Lv4QLAmunTfGXdeicZt4Duz9MSul7P2aRe/kEoCw==",
-      "hash": "3823c50ccdfd52b76b67d369abd6346f4043187be4a3b00bef932ccea42a5972",
-      "nonce": 0
-    },
-    {
-      "index": 5,
-      "timestamp": 1703793142959,
-      "data": {
-        "sender": "7273728:",
-        "recipient": "75727e7:83",
-        "quantity": 2123
-      },
-      "precedingHash": " ",
-      "signature": "hCFDE8W/YecZF4gQHVDJMmHJN9VmxMI4Wi6MHzyKRYcgRJmRv3eymH87P64EOOEYMxr/b6P5d9irsbC4i9g2784SypaDjM90kMacG7jQsmfUPOKZU+rtmArPi1cZXT84LRBzL8rja/uJCVTMZscAmlYxOkvllr4XNUQHEiWpSrJgIVXt0TowhNv4Gm9XmewQWoIvN8Kkn02GBqnAZ4oxYxfoGPl52G86WHH4C26AeHBpwBYMtKWdLvS/ecCxQimrCPvlMv7d5HNKAGqBj+qm4R8NxZ8vjbpbeKi1JKjrc4kbFh08Qcj79RKBfFWo8cM9/mZDxvdbw0jV/unMFLx3WQ==",
-      "hash": "0000887b23d39fd40230b95ed30688d96ab08b7469c54c1d8fc9ea63e0f302ac",
-      "nonce": 41777
+      "precedingHash": "87a5d3d1352b72ee5ef4ec28f5cef64b37fefae53b0adc9d216aea75ec34aae1",
+      "signature": "1D/pfSlHvv09901Iu5YPX8O+qNOnaekGCnX4hVxKurDQwB+6APTyTZXFmz37I8K50cGBcVJHhwW/iaknyGVuWxb7GxcMRDUvRm5x2ejchxIanDtAoKllbT8Gwvxs4ZU7+PFGB2oi9mqwjXG5fwYzjI2Wn7WWOn3hVrBCEZEPLOqy2Y5gq2M61ilA+yGiLPDtdaEo38PuOenIniF1xS8v1i88dIlQVkeN+/NEDL6qNJOqgU1w8GjjtAoZ3u4AQlGPEtyw9RcE+r0MgVIfJLWnngQ44lF01xNaQjmI/00QTrlwTi5vvXVBUwXEUPv5ZDH5M9VvyuEnpB45wxxgOcE+dg==",
+      "hash": "0000c7cf9217e920d110eff83364f467acff8cdc9f45a797e4741a99bba3bb35",
+      "nonce": 28839
     }
   ],
   "difficulty": 4

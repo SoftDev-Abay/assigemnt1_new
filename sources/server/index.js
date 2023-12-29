@@ -164,9 +164,7 @@ const initializeServer = async () => {
 
         console.log(glovalBlockchain.blockchain.length);
 
-        newBlock.proofOfWork(glovalBlockchain.difficulty);
-
-        glovalBlockchain.blockchain.push(newBlock);
+        glovalBlockchain.addNewBlock(newBlock);
         await writeBlockchain(glovalBlockchain);
         res.json({ status: "ok" });
       } else {
@@ -192,9 +190,14 @@ const initializeServer = async () => {
   server.get("/api/blockchain/latest", async (req, res) => {
     try {
       const latestBlock = glovalBlockchain.obtainLatestBlock();
+      let latestBlockCopy = { ...latestBlock };
+      const data = latestBlock.decryptData();
+      console.log(data);
+      latestBlockCopy.data = data;
 
       res.json(latestBlock);
     } catch (error) {
+      console.log(error);
       res.status(500).json({ error: error.message });
     }
   });

@@ -32,11 +32,11 @@ export class CryptoBlock {
     return data;
   }
 
-  decryptData(data) {
+  decryptData() {
     let decryptedData = {};
-    decryptedData.sender = decrypt(data.sender);
-    decryptedData.recipient = decrypt(data.recipient);
-    decryptedData.quantity = decrypt(data.quantity);
+    decryptedData.sender = decrypt(this.data.sender);
+    decryptedData.recipient = decrypt(this.data.recipient);
+    decryptedData.quantity = decrypt(this.data.quantity.toString());
     return decryptedData;
   }
 

@@ -1,23 +1,36 @@
 export const encrypt = (str) => {
-  const hexstr = Buffer.from(str).toString("hex");
-  const arr = hexstr.split("");
-  const newarr = [];
-  for (let i = arr.length - 1; i >= 0; i--) {
-    let char = arr[i];
-    const transformedChar = String.fromCharCode(char.charCodeAt(0) + 1); // You can use a different transformation logic
-    newarr.push(transformedChar);
-  }
-  const newstr = newarr.reverse().join(""); // Reverse the array before joining
-  return newstr;
+  // Convert string to an array of character codes
+  const charCodes = Array.from(str).map((char) => char.charCodeAt(0));
+
+  // Apply a transformation to each character code
+  const transformedCharCodes = charCodes.map((code) => {
+    // Here, you can use a different transformation logic
+    return (code + 1) % 65536; // Using modulo to ensure it stays within the range of a character
+  });
+
+  // Convert back to a string
+  return String.fromCharCode(...transformedCharCodes);
 };
 
-export const decrypt = (str) => {
-  const arr = str.split("").reverse(); // Reverse the array before processing
-  const newarr = [];
-  for (let i = arr.length - 1; i >= 0; i--) {
-    const transformedChar = String.fromCharCode(arr[i].charCodeAt(0) - 1); // Use the inverse transformation logic
-    newarr.push(transformedChar);
-  }
-  const newstr = newarr.join("");
-  return Buffer.from(newstr, "hex").toString(); // Convert back from hex to string
+export const decrypt = (encryptedStr) => {
+  // Convert string to an array of character codes
+  const charCodes = Array.from(encryptedStr).map((char) => char.charCodeAt(0));
+
+  // Apply the inverse transformation
+  const reversedCharCodes = charCodes.map((code) => {
+    // Use the inverse transformation logic
+    return (code - 1 + 65536) % 65536; // Using modulo to wrap around if necessary
+  });
+
+  // Convert back to a string
+  return String.fromCharCode(...reversedCharCodes);
 };
+
+// example usage
+
+// import { encrypt, decrypt } from "./encryption.js";
+
+// const encrypted = encrypt("Hello World!");
+// console.log(encrypted); // "Ifmmp!Xpsme\""
+// const decrypted = decrypt(encrypted);
+// console.log(decrypted); // "Hello World!"
